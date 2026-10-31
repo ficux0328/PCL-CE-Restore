@@ -76,8 +76,13 @@ jobs:
         shell: bash
         run: |
           mkdir -p ./final
-          mv ./release/x64/Plain Craft Launcher 2.exe ./final/PCL2_CE_x64_${{ steps.ver.outputs.version }}.exe
-          mv ./release/arm64/Plain Craft Launcher 2.exe ./final/PCL2_CE_ARM64_${{ steps.ver.outputs.version }}.exe
+          find ./release -name "Plain Craft Launcher 2.exe" | while read f; do
+            case "$f" in
+              *x64*) cp "$f" ./final/PCL2_CE_x64_${{ steps.ver.outputs.version }}.exe ;;
+              *arm64*) cp "$f" ./final/PCL2_CE_ARM64_${{ steps.ver.outputs.version }}.exe ;;
+            esac
+          done
+          ls -la ./final
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
