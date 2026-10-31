@@ -46,7 +46,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -61,13 +61,13 @@ jobs:
           echo "tag=v${version}-${run}-${sha}-Restore" >> "$GITHUB_OUTPUT"
 
       - name: Download x64 Artifact
-        uses: actions/download-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/download-artifact@v4
         with:
           name: PCL2_CE_CI_x64
           path: ./release/x64
 
       - name: Download ARM64 Artifact
-        uses: actions/download-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/download-artifact@v4
         with:
           name: PCL2_CE_CI_ARM64
           path: ./release/arm64
@@ -80,7 +80,7 @@ jobs:
           mv ./release/arm64/Plain Craft Launcher 2.exe ./final/PCL2_CE_ARM64_${{ steps.ver.outputs.version }}.exe
 
       - name: Create Release
-        uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3.0.3
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.ver.outputs.tag }}
           name: "Restore ${{ steps.ver.outputs.tag }}"
