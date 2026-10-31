@@ -1,3 +1,5 @@
+> **⚠️ 本仓库为二次修改版本**：基于 [PCL-Community/PCL-CE](https://github.com/PCL-Community/PCL-CE) 源码修改而来，**已恢复中国大陆地区的 Minecraft 下载、补全与整合包安装功能**（原版在上述地区禁用了相关功能）。其余功能与官方社区版保持一致。如遇问题请先在本仓库反馈，请勿向官方仓库提交与本修改相关的 issue。
+
 **简体中文** | [English](README-EN.md) | [繁體中文](README-ZH_TW.md)
 
 <div align="center">
